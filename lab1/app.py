@@ -10,7 +10,7 @@ from markupsafe import escape
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, "app.db")
-JWT_SECRET = os.environ.get("JWT_SECRET", "change-this-secret-in-production")  # nosec B105
+JWT_SECRET = os.environ.get("JWT_SECRET", "change-this-secret-in-production")
 JWT_ALGORITHM = "HS256"
 TOKEN_TTL_MINUTES = 30
 
@@ -87,7 +87,7 @@ def login():
          "exp": datetime.now(timezone.utc) + timedelta(minutes=TOKEN_TTL_MINUTES)},
         JWT_SECRET, algorithm=JWT_ALGORITHM,
     )
-    return jsonify(access_token=token, token_type="Bearer", expires_in=TOKEN_TTL_MINUTES * 60)
+    return jsonify(access_token=token, token_type="Bearer", expires_in=TOKEN_TTL_MINUTES * 60)  # nosec B106
 
 
 @app.get("/api/data")
